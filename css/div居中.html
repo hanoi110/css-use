@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>div居中</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 子元素绝定定位父元素相对定位 -->
+    <section class="layout">
+        <style media="screen">
+            .father-relative {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                background-color: #ffff00;
+            }
+            .childen-absolute {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -50px;
+                margin-top: -50px;
+                background-color: #ff00ff;
+            }
+        </style>
+        <aside class="father-childen">
+            <h4>子元素绝定定位父元素相对定位。注：需要已知父级元素宽高，才能定义margin-left和margin-top</h4>
+            <div class="father-relative">
+                <div class="childen-absolute"></div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 子元素绝定定位父元素相对定位,子元素四边定位为0 -->
+    <section class="layout">
+        <style media="screen">
+            .father-childen-l .father-relative {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                background-color: #ffff00;
+            }
+            .father-childen-l.childen-absolute {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                background-color: #ff00ff;
+            }
+        </style>
+        <aside class="father-childen-l">
+            <h4>子元素绝定定位父元素相对定位,子元素四边定位为0。注：不需要父元素宽高，但把定位元素全用上了</h4>
+            <div class="father-relative">
+                <div class="childen-absolute"></div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 子集元素是内联元素，父元素设置table-cell -->
+    <section class="layout">
+        <style media="screen">
+            .father-table-cell {
+                width: 200px;
+                height: 200px;
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #ffff00;
+            }
+            .childen-inline-block {
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                background-color: #ff00ff;
+            }
+        </style>
+        <h4>子集元素是内联元素，父元素设置table-cell。注：不需要父元素宽高，inline-block、table-cell不兼容ie6、7</h4>
+        <aside class="father-childen">
+            <div class="father-table-cell">
+                <div class="childen-inline-block"></div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 子集元素是块级元素，父元素设置table-cell -->
+    <section class="layout">
+        <style media="screen">
+            .father {
+                width: 200px;
+                height: 200px;
+                display: table-cell;
+                vertical-align: middle;
+                background-color: #ffff00;
+            }
+            .childen {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                background-color: #ff00ff;
+            }
+        </style>
+        <h4>子集元素是块级元素，父元素设置table-cell.注：不需要父元素宽高，table-cell不兼容ie6、7</h4>
+        <aside class="father-childen">
+            <div class="father">
+                <div class="childen"></div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 利用css3 translate特性 -->
+    <section class="layout">
+        <style media="screen">
+            .father-childen-translate .father {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                background-color: #ffff00;
+            }
+            .father-childen-translate .childen {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                   -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                     -o-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                background-color: #ff00ff;
+            }
+        </style>
+        <aside class="father-childen-translate">
+            <h4>利用css3 translate特性.注：不需要父元素宽高，translate兼容ie9+</h4>
+            <div class="father">
+                <div class="childen"></div>
+            </div>
+        </aside>
+    </section>
+
+
+
+    <!-- 利用flex布局特性 -->
+    <section class="layout">
+        <style media="screen">
+            .father-childen-flex .father {
+                width: 200px;
+                height: 200px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffff00;
+            }
+            .father-childen-flex .childen {
+                width: 100px;
+                height: 100px;
+                background-color: #ff00ff;
+            }
+        </style>
+        <aside class="father-childen-flex">
+            <h4>利用flex布局特性。注：不需要父元素宽高，flex兼容ie10+</h4>
+            <div class="father">
+                <div class="childen"></div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 利用grid布局 -->
+    <section class="layout">
+    <style media="screen">
+        .father-childen-grid .father {
+            width: 200px;
+            height: 200px;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            background-color: #ffff00;
+        }
+        .father-childen-grid .childen {
+            width: 100px;
+            height: 100px;
+            grid-row-start: 2;
+            grid-column-start: 2;
+            background-color: #ff00ff;
+        }
+    </style>
+        <h4>利用grid布局。注：不需要父元素宽高，兼容性Firefox 52,Safari 10.1,Chrome 57,Opera 44</h4>
+        <aside class="father-childen-grid">
+            <div class="father">
+                <div class="childen"></div>
+            </div>
+        </aside>
+    </section>
+</body>
+</html>
