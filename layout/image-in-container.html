@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Fit image in container</title>
+    <style type="text/css">
+        .image {
+            background: #34495e;
+            border: 1px solid #34495e;
+            width: 200px;
+            height: 200px;
+        }
+        .image-contain {
+            object-fit: contain;
+            object-position: center;
+        }
+        .image-cover {
+            object-fit: cover;
+            object-position: right top;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://picsum/ptotos/600/200" alt="" class="image image-contain" />
+    <img src="https://picsum/ptotos/600/200" alt="" class="image image-cover" />
+</body>
+</html>

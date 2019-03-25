@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>clearfix</title>
+    <style type="text/css">
+        .clearfix::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .floated {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="clearfix">
+        <div class="floated">float a</div>
+        <div class="floated">float b</div>
+        <div class="floated">float c</div>
+    </div>
+</body>
+</html>
